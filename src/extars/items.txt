@@ -1,2 +1,18 @@
 	abc : 1200 : 10
 
+	detergent : 130 : 2
+
+	scoop : 12 : 122
+
+	bangle : 10 : 12
+
+	ayay : 123 : 12
+
+	cv : 12 : 12
+
+	safl;kjsd;alkfj : 31 : 13
+
+	fdsal;jkjsdf;lkj : 123 : 234
+
+	fsdlk : 1 : 123
+

@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <unistd.h>
 
 class bill {
 private:
@@ -20,18 +21,18 @@ public:
 };
 
 void clearscreen() {
+  std::cout << "\033[2J\033[H";
   // /033[2j -> clears the entire screen
   // /033[H -> moves cursor to top left corner
-  std::cout << "\033[2J\033[H";
 }
 
 void add(bill b) {
-  bool status = false;
-  while (!status) {
+  while (true) {
     int choice;
+    std::cout<< "\n\n";
     std::cout << "\t1. add item\n";
     std::cout << "\t2. close the window\n";
-    std::cout << "\tenter the choice: \n";
+    std::cout << "\tenter the choice: ";
     std::cin >> choice;
 
     if (choice == 1) {
@@ -39,19 +40,23 @@ void add(bill b) {
       std::string item;
       int rate, qty;
 
-      std::cout << "enter the item name: \n";
+      std::cout<< "\n\n";
+      std::cout << "\tenter the item name: ";
       std::cin.ignore(); // ignores any leftover new line character
       std::getline(std::cin, item);
       b.setItem(item);
-      std::cout << "enter the item rate: \n";
+      std::cout << "\tenter the item rate: ";
       std::cin >> rate;
       b.setRate(rate);
-      std::cout << "enter the quantity of item: \n";
+      std::cout << "\tenter the quantity of item: ";
       std::cin >> qty;
       b.setQuant(qty);
 
+      // defines the path of file, where all the item details are stored
       std::string path = std::string(std::getenv("HOME")) +
                          "/Projects/billing-sys/src/extars/items.txt";
+      // output the user inputs into a specified file
+      // std::ios::app, appends next input in file
       std::ofstream items(path, std::ios::app);
 
       if (!items) {
@@ -60,14 +65,14 @@ void add(bill b) {
         items << "\t" << b.getItem() << " : " << b.getRate() << " : "
               << b.getQuant() << "\n\n";
       }
-
+      // closes the file, items.txt
       items.close();
-      std::cout << "item is added successfully\n";
-      // check 23:30
+      std::cout << "\t"<< item<< " is added to the bill\n";
+      sleep(2);  //inputs value is in seconds
     } else if (choice == 2) {
       clearscreen();
       std::cout << "\tback to main menu\n";
-      status = true;
+      break;
     }
   }
 }
@@ -78,6 +83,7 @@ int main() {
   while (true) {
     clearscreen();
     std::string input;
+    std::cout<< "\n\n";
     std::cout << "\tBilling Syatem\n";
     std::cout << "\t——————————————\n";
     std::cout << "\t\t1. adding items\n";
