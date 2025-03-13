@@ -1,3 +1,3 @@
-/Users/gaurav/Projects/billing-sys/build/CMakeFiles/bill.dir
-/Users/gaurav/Projects/billing-sys/build/CMakeFiles/edit_cache.dir
-/Users/gaurav/Projects/billing-sys/build/CMakeFiles/rebuild_cache.dir
+/Users/gaurav/Projects/bill-sys/build/CMakeFiles/bill.dir
+/Users/gaurav/Projects/bill-sys/build/CMakeFiles/edit_cache.dir
+/Users/gaurav/Projects/bill-sys/build/CMakeFiles/rebuild_cache.dir

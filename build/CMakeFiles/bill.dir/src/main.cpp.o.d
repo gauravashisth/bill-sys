@@ -1,5 +1,5 @@
 CMakeFiles/bill.dir/src/main.cpp.o: \
-  /Users/gaurav/Projects/billing-sys/src/main.cpp \
+  /Users/gaurav/Projects/bill-sys/src/main.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/cstdlib \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__assertion_handler \

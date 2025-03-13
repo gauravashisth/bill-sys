@@ -54,10 +54,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/gaurav/Projects/billing-sys
+CMAKE_SOURCE_DIR = /Users/gaurav/Projects/bill-sys
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/gaurav/Projects/billing-sys/build
+CMAKE_BINARY_DIR = /Users/gaurav/Projects/bill-sys/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -85,14 +85,14 @@ clean: CMakeFiles/bill.dir/clean
 CMakeFiles/bill.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bill.dir/build.make CMakeFiles/bill.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bill.dir/build.make CMakeFiles/bill.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/gaurav/Projects/billing-sys/build/CMakeFiles --progress-num=1,2 "Built target bill"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/gaurav/Projects/bill-sys/build/CMakeFiles --progress-num=1,2 "Built target bill"
 .PHONY : CMakeFiles/bill.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/bill.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gaurav/Projects/billing-sys/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gaurav/Projects/bill-sys/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/bill.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gaurav/Projects/billing-sys/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gaurav/Projects/bill-sys/build/CMakeFiles 0
 .PHONY : CMakeFiles/bill.dir/rule
 
 # Convenience name for target.
@@ -102,7 +102,7 @@ bill: CMakeFiles/bill.dir/rule
 # codegen rule for target.
 CMakeFiles/bill.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bill.dir/build.make CMakeFiles/bill.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/gaurav/Projects/billing-sys/build/CMakeFiles --progress-num=1,2 "Finished codegen for target bill"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/gaurav/Projects/bill-sys/build/CMakeFiles --progress-num=1,2 "Finished codegen for target bill"
 .PHONY : CMakeFiles/bill.dir/codegen
 
 # clean rule for target.

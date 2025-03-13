@@ -26,7 +26,7 @@ void clearscreen() {
   // /033[H -> moves cursor to top left corner
 }
 
-void add(bill b) {
+void add(bill &b) { // Pass by reference
   while (true) {
     int choice;
     std::cout << "\n\n";
@@ -42,33 +42,38 @@ void add(bill b) {
 
       std::cout << "\n\n";
       std::cout << "\tenter the item name: ";
-      std::cin.ignore(); // ignores any leftover new line character
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(),
+                      '\n'); // Properly clear input buffer
       std::getline(std::cin, item);
       b.setItem(item);
+
       std::cout << "\tenter the item rate: ";
       std::cin >> rate;
       b.setRate(rate);
+
       std::cout << "\tenter the quantity of item: ";
       std::cin >> qty;
       b.setQuant(qty);
 
-      // defines the path of file, where all the item details are stored
+      // Correct file path
       std::string path = std::string(std::getenv("HOME")) +
-                         "/Projects/billing-sys/src/extars/items.txt";
-      // output the user inputs into a specified file
-      // std::ios::app, appends next input in file
-      std::ofstream items(path, std::ios::app);
+                         "/Projects/billing-sys/src/extras/items.txt";
 
+      // Ensure directory exists
+      std::system(("mkdir -p " + std::string(std::getenv("HOME")) +
+                   "/Projects/billing-sys/src/extras")
+                      .c_str());
+
+      std::ofstream items(path, std::ios::app);
       if (!items) {
-        std::cout << "\terror: file not found\n";
+        std::cout << "\terror: unable to open file\n";
       } else {
         items << "\t" << b.getItem() << " : " << b.getRate() << " : "
               << b.getQuant() << "\n\n";
       }
-      // closes the file, items.txt
       items.close();
+
       std::cout << "\t" << item << " is added to the bill\n";
-      sleep(1); // input value, in seconds
       clearscreen();
     } else if (choice == 2) {
       clearscreen();
@@ -96,10 +101,10 @@ void print(bill b) {
       std::cin >> quant;
 
       std::string path = std::string(std::getenv("HOME")) +
-                         "/Projects/billing-sys/src/extars/items.txt";
+                         "/Projects/billing-sys/src/extras/items.txt";
       std::ifstream items(path);
       std::string path_temp = std::string(std::getenv("HOME")) +
-                              "/Projects/billing-sys/src/extars/items_temp.txt";
+                              "/Projects/billing-sys/src/extras/items_temp.txt";
       std::ofstream items_temp(path_temp);
 
       std::string line;
